@@ -2,8 +2,9 @@
   "name": "open-weather",
   "version": "1.0.0",
   "description": "node weather app based on medium article with open weather api",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -17,6 +18,10 @@
   },
   "homepage": "https://github.com/Talkingbaby/open-weather#readme",
   "dependencies": {
+    "body-parser": "^1.18.2",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "nodemon": "^1.12.7",
     "request": "^2.83.0",
     "yargs": "^10.0.3"
   }

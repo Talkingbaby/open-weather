@@ -1,0 +1,13 @@
+.main-row {
+    height: 100vh;
+}
+input[name=city]{
+    border: none;
+}
+input[name=city]:focus {
+    border-color: transparent;
+    box-shadow: unset;
+}
+.list-group-item {
+    border: none;
+}

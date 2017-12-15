@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Open Weather</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-row row justify-content-center align-items-center">
+        <div class="col col-sm-4 d-flex justify-content-center align-items-center">
+            <form action="/" method="post" class="form-inline">
+              <input class="form-control form-control-lg" name="city" type="text" placeholder="Enter a City" required>
+              <button type="submit" class="btn btn-outline-dark" value="Get Weather">search</button>
+            </form>
+        </div>
+        <div class="col col-sm-8 d-flex justify-content-center align-items-center">
+          <div class="row">
+            <div class="col-12">
+                <% if(city !== null){ %>
+                  <h3><%= city %> , <%= country %></h3>
+                <% } %>
+            </div>
+            <div class="col-12 d-flex flex-row flex-nowrap">
+                <% if(weather !== null){ %>
+                  <% for(var i=0; i<weather.length; i+= 8) {%>
+                  <ul class="list-group">
+                         <li class="list-group-item"><%= weather[i].dt_txt.replace('06:00:00', '') %></li>
+                         <li class="list-group-item"><%= weather[i].main.temp_min %>&#8451; min</li>
+                         <li class="list-group-item"><%= weather[i].main.temp_max %>&#8451; max</li>
+                         <li class="list-group-item"><%= weather[i].main.humidity %> humidity</li>
+                  </ul>
+                  <% } %>
+                <% } %>
+            </div>
+          </div>
+            <% if(error !== null){ %>
+              <p><%= error %></p>
+            <% } %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
